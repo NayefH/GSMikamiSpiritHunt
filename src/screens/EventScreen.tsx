@@ -9,7 +9,7 @@ export function EventScreen({ copy, onChoose }: EventScreenProps) {
   return (
     <section className="modal-screen">
       <div className="event-art anime-enter">
-        <span className="mystery-kanji">怪</span>
+        <span className="mystery-symbol">?</span>
         <i /><i /><i />
       </div>
       <div className="event-panel anime-enter">

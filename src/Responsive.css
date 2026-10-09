@@ -1,4 +1,4 @@
-﻿/* Responsive layout: keep every value and action available at narrow widths. */
+/* Responsive layout: keep every value and action available at narrow widths. */
 .audio-setting { display: grid; grid-template-columns: auto minmax(70px, 110px) 4ch; align-items: center; gap: 8px; }
 .audio-setting input { width: 100%; min-width: 0; min-height: 44px; margin: 0; }
 .music-controls button { width: 44px; height: 44px; }
@@ -8,6 +8,46 @@
 .combat-log p { overflow-wrap: anywhere; }
 .start-screen, .battle-hud, .map-layout, .route-row, .hero-card { min-width: 0; }
 button, input, summary { touch-action: manipulation; }
+.player-fighter .battle-character {
+  width: 320px;
+  max-width: 100%;
+  height: 315px;
+  border-radius: 0;
+  object-fit: contain;
+  object-position: center bottom;
+  align-self: flex-end;
+  transform: scaleX(-1);
+  filter: drop-shadow(-6px 7px 0 #261c43);
+}
+
+/* Give each character a full-size illustration above their details. */
+.hero-select { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
+.hero-select .hero-card {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 300px 1fr auto;
+  gap: 18px;
+  padding: 40px 16px 20px;
+  align-items: start;
+  overflow: visible;
+}
+.hero-select .pick-number { position: absolute; top: 16px; left: 14px; writing-mode: horizontal-tb; }
+.hero-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  background: radial-gradient(ellipse at 50% 65%, #a557e65c, transparent 70%);
+}
+.hero-art .character-photo { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
+.hero-art .character-yokoshima { object-position: center; }
+.hero-art .character-okinu { object-position: center; }
+.hero-select .hero-copy { min-width: 0; gap: 8px; }
+.hero-select .hero-copy strong { font-size: clamp(1.2rem, 1.5vw, 1.6rem); line-height: 1.15; }
+.hero-select .hero-copy small { line-height: 1.5; }
+.hero-select .hero-copy span { line-height: 1.5; }
+.hero-select .stats { display: block; font-size: .75rem; line-height: 1.5; }
+.hero-select .hero-card.selected .hero-art { background: radial-gradient(ellipse at 50% 65%, #d27aff88, transparent 72%); }
+.hero-select .hero-card:focus-visible { outline: 3px solid #f3c6ff; outline-offset: 6px; }
 
 @media (max-width: 1280px) {
   .battle-hud { grid-template-columns: 190px minmax(0, 1fr) 210px; gap: 18px; }
@@ -18,7 +58,7 @@ button, input, summary { touch-action: manipulation; }
   .title-block { margin-top: 0; }
   .hero-select, .start-button { grid-column: 1; }
   .start-button { justify-self: stretch; min-width: 0; }
-  .hero-card { grid-template-columns: 24px 90px minmax(0, 1fr) auto; }
+  .hero-select .hero-card { grid-template-rows: 340px 1fr auto; }
   .battle-hud { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: 'player enemy' 'actions actions' 'guide guide'; gap: 18px; }
   .combatant-info { grid-area: player; min-width: 0; }
   .enemy-info { grid-area: enemy; min-width: 0; }
@@ -59,16 +99,17 @@ button, input, summary { touch-action: manipulation; }
   .title-block h1 { font-size: clamp(2.05rem, 9vw, 3.4rem); line-height: .98; }
   .eyebrow { font-size: .68rem; line-height: 1.6; letter-spacing: .1em; }
   .intro { font-size: .95rem; margin-top: 20px; padding-left: 12px; }
-  .hero-select { gap: 14px; }
-  .hero-card { grid-template-columns: 68px minmax(0, 1fr); gap: 5px 12px; min-height: 148px; padding: 14px 12px; transform: none !important; }
+  .hero-select { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .hero-select .hero-card { grid-template-columns: minmax(100px, .9fr) minmax(0, 1fr); grid-template-rows: 1fr auto; gap: 12px 16px; min-height: 250px; padding: 38px 16px 16px; transform: none !important; }
+  .hero-art { grid-column: 1; grid-row: 1 / 3; height: 220px; align-self: end; }
   .pick-number { display: none; }
   .hero-card .character-photo.compact { grid-column: 1; grid-row: 1 / 3; width: 68px; height: 110px; }
   .hero-copy { grid-column: 2; min-width: 0; gap: 6px; }
-  .hero-copy small { padding-right: 68px; font-size: .62rem; line-height: 1.5; }
+  .hero-copy small { font-size: .62rem; line-height: 1.5; }
   .hero-copy strong { font-size: 1.05rem; }
   .hero-copy span { font-size: .78rem; line-height: 1.4; }
   .hero-card.selected::after { top: 10px; right: 8px; font-size: .52rem; padding: 3px; letter-spacing: .04em; }
-  .stats { display: block; grid-column: 2; font-size: .75rem; padding-top: 4px; }
+  .hero-select .stats { grid-column: 2; font-size: .75rem; padding-top: 4px; }
   .primary { min-height: 48px; max-width: 100%; padding: 14px 16px; letter-spacing: .06em; }
   .start-button span { display: none; }
   .legal-note { font-size: .7rem; line-height: 1.8; overflow-wrap: anywhere; }
@@ -141,7 +182,7 @@ button, input, summary { touch-action: manipulation; }
   .reward-grid p { font-size: .85rem; line-height: 1.5; }
   .modal-screen { min-height: auto; padding: 20px 16px; gap: 10px; }
   .event-art { height: 120px; }
-  .mystery-kanji { font-size: 5rem; }
+  .mystery-symbol { font-size: 5rem; }
   .event-panel { min-width: 0; padding: 18px 14px; }
   .event-panel h1 { font-size: clamp(1.85rem, 8vw, 3rem); line-height: 1.05; overflow-wrap: anywhere; }
   .event-panel > p:not(.eyebrow) { font-size: .95rem; line-height: 1.6; }

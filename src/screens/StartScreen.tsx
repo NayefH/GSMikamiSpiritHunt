@@ -41,7 +41,9 @@ export function StartScreen({ rootRef, selectedHero, onSelectHero, onStart }: St
             onClick={() => onSelectHero(hero.id)}
           >
             <span className="pick-number">0{index + 1}</span>
-            <CharacterPortrait id={hero.id} compact />
+            <span className="hero-art">
+              <CharacterPortrait id={hero.id} />
+            </span>
             <span className="hero-copy">
               <small>{hero.title}</small>
               <strong>{hero.name}</strong>
@@ -57,7 +59,7 @@ export function StartScreen({ rootRef, selectedHero, onSelectHero, onStart }: St
       </button>
 
       <p className="legal-note anime-enter">
-        Fan project · <a href={ANIME_LOGO_SOURCE} target="_blank" rel="noreferrer">Original anime logo</a> · AI-generated character &amp; enemy art · Design references:{' '}
+        Fan project · <a href={ANIME_LOGO_SOURCE} target="_blank" rel="noreferrer">Original anime logo</a> · AI-edited official character artwork · AI-generated enemy &amp; item art · Character artwork:{' '}
         <a href={CHARACTER_IMAGES.mikami.sourceUrl} target="_blank" rel="noreferrer">Toei Animation</a>
         {' '}· <a href="https://gs-mikami.fandom.com/wiki/List_of_characters" target="_blank" rel="noreferrer">GS Mikami Wiki</a>
         {' '}· Official anime imagery:{' '}

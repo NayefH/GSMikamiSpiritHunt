@@ -39,7 +39,7 @@ export function BattleScreen({ hero, heroId, player, battle, enemy, log, onPlayS
 
         <div className="fighter player-fighter anime-enter">
           <span className="status-tag">{player.ward ? `WARD ${player.ward}` : 'READY'}</span>
-          <CharacterPortrait id={heroId} />
+          <CharacterPortrait id={heroId} battle />
         </div>
         <div className="fighter enemy-fighter enemy-anime anime-enter">
           <span className="intent">{intent.short}</span>

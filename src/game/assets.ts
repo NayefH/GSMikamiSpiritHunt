@@ -5,9 +5,15 @@ export const ANIME_LOGO_SOURCE = 'https://www.fwinc.co.jp/news/79772/'
 export const OFFICIAL_OPENING_SOURCE = 'https://www.youtube.com/watch?v=xDzB3anJi_8'
 
 export const CHARACTER_IMAGES: Record<HeroId, { src: string; sourceUrl: string }> = {
-  mikami: { src: '/characters/reiko-cel.png', sourceUrl: 'https://www.toei-anim.co.jp/tv/gs_mikami/character/' },
-  yokoshima: { src: '/characters/yokoshima-cel.png', sourceUrl: 'https://www.toei-anim.co.jp/tv/gs_mikami/character/' },
-  okinu: { src: '/characters/okinu-cel.png', sourceUrl: 'https://www.toei-anim.co.jp/tv/gs_mikami/character/' },
+  mikami: { src: '/characters/reiko-action.png', sourceUrl: 'https://www.fwinc.co.jp/news/79772/' },
+  yokoshima: { src: '/characters/yokoshima-action.png', sourceUrl: 'https://www.fwinc.co.jp/news/79772/' },
+  okinu: { src: '/characters/okinu-action.png', sourceUrl: 'https://www.fwinc.co.jp/news/79772/' },
+}
+
+export const BATTLE_CHARACTER_IMAGES: Record<HeroId, { src: string; sourceUrl: string }> = {
+  mikami: { src: '/characters/reiko-battle.png', sourceUrl: 'https://www.fwinc.co.jp/news/79772/' },
+  yokoshima: { src: '/characters/yokoshima-battle.png', sourceUrl: 'https://www.fwinc.co.jp/news/79772/' },
+  okinu: { src: '/characters/okinu-battle.png', sourceUrl: 'https://www.fwinc.co.jp/news/79772/' },
 }
 
 // Generated interpretations; these URLs document character references, not image licenses.

@@ -5,10 +5,10 @@ import type { Hero, HeroId, MapNode, NodeKind } from '../game/data'
 import type { PlayerState } from '../game/types'
 
 const NODE_ICONS: Record<NodeKind, string> = {
-  battle: '怨',
+  battle: '⚔',
   event: '?',
-  elite: '禍',
-  boss: '鬼',
+  elite: '!',
+  boss: '☠',
 }
 
 const NODE_LABELS: Record<NodeKind, string> = {
