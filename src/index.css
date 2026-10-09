@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Chakra+Petch:wght@400;500;600;700&display=swap');
+:root { font-family: 'Chakra Petch', system-ui, sans-serif; color: #f8f2ff; background: #080711; font-synthesis: none; text-rendering: optimizeLegibility; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: #080711; }
+button { font: inherit; }
+button:focus-visible { outline: 3px solid #52e7ff; outline-offset: 3px; }
+#root { min-height: 100vh; }

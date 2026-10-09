@@ -1,0 +1,182 @@
+﻿/* Responsive layout: keep every value and action available at narrow widths. */
+.audio-setting { display: grid; grid-template-columns: auto minmax(70px, 110px) 4ch; align-items: center; gap: 8px; }
+.audio-setting input { width: 100%; min-width: 0; min-height: 44px; margin: 0; }
+.music-controls button { width: 44px; height: 44px; }
+.combat-log summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-size: .75rem; color: #cbbcd7; }
+.combat-log summary::before { content: '+'; margin-right: 8px; color: var(--cyan); }
+.combat-log[open] summary::before { content: '−'; }
+.combat-log p { overflow-wrap: anywhere; }
+.start-screen, .battle-hud, .map-layout, .route-row, .hero-card { min-width: 0; }
+button, input, summary { touch-action: manipulation; }
+
+@media (max-width: 1280px) {
+  .battle-hud { grid-template-columns: 190px minmax(0, 1fr) 210px; gap: 18px; }
+  .skill-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 1180px) {
+  .start-screen { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; gap: 28px; padding: 28px; }
+  .title-block { margin-top: 0; }
+  .hero-select, .start-button { grid-column: 1; }
+  .start-button { justify-self: stretch; min-width: 0; }
+  .hero-card { grid-template-columns: 24px 90px minmax(0, 1fr) auto; }
+  .battle-hud { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: 'player enemy' 'actions actions' 'guide guide'; gap: 18px; }
+  .combatant-info { grid-area: player; min-width: 0; }
+  .enemy-info { grid-area: enemy; min-width: 0; }
+  .actions { grid-area: actions; order: initial; border: 0; padding: 0; min-width: 0; }
+  .battle-hud > .stat-guide { grid-area: guide; order: initial; }
+  .skill-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .skill-grid button { grid-template-columns: minmax(0, 1fr) auto; }
+  .skill-grid kbd { display: none; }
+  .map-layout { grid-template-columns: minmax(0, 1fr); }
+  .route-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .map-node { min-width: 0; }
+}
+@media (max-width: 800px) {
+  .battle-scene { gap: clamp(16px, 7vw, 60px); }
+  .fighter { min-width: 0; }
+  .route-map { padding: 0; }
+  .route-map::before { display: none; }
+  .route-row { grid-template-columns: minmax(0, 1fr); gap: 10px; min-height: 0; padding: 30px 0 0; margin-bottom: 16px; }
+  .stage-label { top: 4px; left: 0; color: #cbbcd7; font-size: .8rem; }
+  .stage-label::before { content: 'NIGHT '; }
+  .map-node { grid-column: 1 !important; grid-row: auto; min-height: 88px; }
+  .map-node:disabled { opacity: .65; }
+  .map-node.done { opacity: .5; }
+  .skill-grid { grid-template-columns: minmax(0, 1fr); }
+  .skill-grid button { grid-template-columns: minmax(0, 1fr) auto; min-height: 72px; padding: 12px; }
+  .skill-grid small, .focus-button small { font-size: .78rem; line-height: 1.5; }
+  .skill-values i { font-size: .65rem; padding: 3px 6px; }
+  .focus-button { min-height: 64px; }
+  .topbar { gap: 14px; }
+  .case-file { display: none; }
+  .topbar { grid-template-columns: minmax(0, 1fr) auto auto; }
+}
+@media (max-width: 640px) {
+  .start-screen, .game-shell { min-height: auto; }
+  .start-screen { padding: 20px 16px 24px; gap: 24px; }
+  .brand { justify-content: center; }
+  .brand .anime-logo { width: min(76vw, 300px); }
+  .title-block h1 { font-size: clamp(2.05rem, 9vw, 3.4rem); line-height: .98; }
+  .eyebrow { font-size: .68rem; line-height: 1.6; letter-spacing: .1em; }
+  .intro { font-size: .95rem; margin-top: 20px; padding-left: 12px; }
+  .hero-select { gap: 14px; }
+  .hero-card { grid-template-columns: 68px minmax(0, 1fr); gap: 5px 12px; min-height: 148px; padding: 14px 12px; transform: none !important; }
+  .pick-number { display: none; }
+  .hero-card .character-photo.compact { grid-column: 1; grid-row: 1 / 3; width: 68px; height: 110px; }
+  .hero-copy { grid-column: 2; min-width: 0; gap: 6px; }
+  .hero-copy small { padding-right: 68px; font-size: .62rem; line-height: 1.5; }
+  .hero-copy strong { font-size: 1.05rem; }
+  .hero-copy span { font-size: .78rem; line-height: 1.4; }
+  .hero-card.selected::after { top: 10px; right: 8px; font-size: .52rem; padding: 3px; letter-spacing: .04em; }
+  .stats { display: block; grid-column: 2; font-size: .75rem; padding-top: 4px; }
+  .primary { min-height: 48px; max-width: 100%; padding: 14px 16px; letter-spacing: .06em; }
+  .start-button span { display: none; }
+  .legal-note { font-size: .7rem; line-height: 1.8; overflow-wrap: anywhere; }
+
+  .music-controls { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 2px 12px; padding: 8px 16px; }
+  .music-controls > button { grid-column: 1; grid-row: 1 / 3; align-self: center; }
+  .audio-setting { grid-column: 2; grid-template-columns: 46px minmax(0, 1fr) 4ch; gap: 8px; min-width: 0; }
+  .music-track { grid-column: 1 / -1; max-width: 100%; font-size: .7rem; padding: 4px 0; }
+  .topbar { height: auto; min-height: 64px; padding: 8px 14px; gap: 10px; }
+  .topbar > .text-button { display: block; min-height: 44px; padding: 4px; font-size: .65rem; letter-spacing: .04em; }
+  .mini-brand { min-height: 44px; padding: 0; min-width: 0; }
+  .anime-logo.compact { width: 90px; }
+  .resource { font-size: .85rem; padding: 6px; gap: 4px; }
+
+  .map-screen { padding: 24px 16px; }
+  .map-heading { gap: 14px; margin-bottom: 20px; }
+  .map-heading h1 { font-size: clamp(2.4rem, 11vw, 3.8rem); line-height: .95; }
+  .map-heading > p { margin: 0; max-width: none; font-size: .9rem; padding: 12px; }
+  .map-layout { gap: 20px; }
+  .sweeper-card { grid-template-columns: 72px minmax(0, 1fr); gap: 6px 12px; padding: 14px; }
+  .sweeper-card .portrait { grid-column: 1; grid-row: 1 / 3; height: 92px; margin: 0; border-bottom: 0; }
+  .sweeper-card > small, .sweeper-card > h2 { grid-column: 2; margin: 0; }
+  .sweeper-card > h2 { font-size: 1.15rem; }
+  .sweeper-card .meter, .sweeper-card .inventory { grid-column: 1 / -1; }
+  .sweeper-card .inventory { margin-top: 8px; padding-top: 10px; }
+  .map-node { padding: 12px; gap: 10px; transform: none !important; }
+  .map-node strong { font-size: 1rem; }
+  .map-node small { font-size: .65rem; }
+  .map-node em { font-size: .8rem; line-height: 1.4; }
+
+  .battle-screen { min-height: auto; grid-template-rows: auto auto; }
+  .battle-scene { min-height: 240px; padding: 30px 12px 12px; gap: 12px; }
+  .fighter { flex: 1 1 0; min-width: 0; max-width: 46%; }
+  .player-fighter { height: 195px; }
+  .player-fighter .character-photo, .player-fighter .character-yokoshima { width: 100% !important; height: 185px !important; }
+  .anime-enemy-art { width: 100% !important; height: 185px !important; }
+  .status-tag, .intent { top: -14px; font-size: .6rem; letter-spacing: .02em; max-width: 100%; white-space: normal; width: max-content; padding: 4px 6px; line-height: 1.3; }
+  .scene-moon { width: 74px; height: 74px; }
+  .battle-hud { padding: 16px 12px; gap: 18px 12px; }
+  .combatant-info > small, .enemy-info > small { font-size: .6rem; letter-spacing: .04em; line-height: 1.5; display: block; }
+  .combatant-info h2, .enemy-info h2 { font-size: 1rem; line-height: 1.25; margin: 6px 0 14px; }
+  .meter-label { font-size: .65rem; letter-spacing: .02em; gap: 4px; }
+  .meter-label strong { font-size: .78rem; }
+  .battle-values { gap: 5px; }
+  .battle-values > div { flex-direction: column; align-items: flex-start; padding: 7px; gap: 4px; }
+  .battle-values b { font-size: 1.1rem; }
+  .battle-values small { font-size: .6rem; line-height: 1.3; }
+  .next-action { padding: 9px; }
+  .next-action strong { font-size: .85rem; line-height: 1.4; }
+  .next-action span { font-size: .65rem; line-height: 1.4; }
+  .combat-log { margin-top: 8px; padding-top: 4px; }
+  .combat-log p { font-size: .75rem; line-height: 1.5; }
+  .turn-label { align-items: center; gap: 10px; }
+  .skill-grid button strong, .focus-button strong { font-size: 1rem; }
+  .skill-grid b { font-size: .8rem; }
+  .stat-guide, .stat-guide.compact { grid-template-columns: minmax(0, 1fr); padding: 14px; gap: 12px; }
+  .guide-items { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 10px; }
+  .guide-item { align-items: flex-start; }
+  .guide-item span strong { font-size: .75rem; }
+  .guide-item span small { font-size: .68rem; line-height: 1.5; }
+
+  .reward-screen { min-height: auto; padding: 28px 16px; }
+  .reward-screen h1 { font-size: clamp(2rem, 9vw, 3.3rem); line-height: .98; }
+  .reward-grid { width: 100%; max-width: 480px; gap: 14px; margin-top: 24px; }
+  .reward-grid button { display: grid; grid-template-columns: 90px minmax(0, 1fr); grid-template-rows: auto auto auto; gap: 4px 12px; min-height: 134px; padding: 14px; text-align: left; align-content: center; transform: none !important; }
+  .reward-art { grid-column: 1; grid-row: 1 / 4; width: 90px; height: 100px; margin: 0; }
+  .reward-grid small, .reward-grid strong, .reward-grid p { grid-column: 2; margin: 0; }
+  .reward-grid strong { font-size: 1rem; line-height: 1.35; }
+  .reward-grid small { font-size: .65rem; }
+  .reward-grid p { font-size: .85rem; line-height: 1.5; }
+  .modal-screen { min-height: auto; padding: 20px 16px; gap: 10px; }
+  .event-art { height: 120px; }
+  .mystery-kanji { font-size: 5rem; }
+  .event-panel { min-width: 0; padding: 18px 14px; }
+  .event-panel h1 { font-size: clamp(1.85rem, 8vw, 3rem); line-height: 1.05; overflow-wrap: anywhere; }
+  .event-panel > p:not(.eyebrow) { font-size: .95rem; line-height: 1.6; }
+  .event-choices { margin-top: 22px; gap: 14px; }
+  .event-choices button { grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 14px; }
+  .event-choices span { grid-row: auto; font-size: .7rem; }
+  .event-choices strong { font-size: 1rem; }
+  .event-choices small { font-size: .8rem; line-height: 1.5; }
+  .ending { min-height: auto; padding: 32px 18px; }
+  .ending > div { min-width: 0; max-width: 100%; }
+  .ending h1 { font-size: clamp(2rem, 9vw, 3.4rem); line-height: 1.02; overflow-wrap: anywhere; }
+  .ending > div > p:not(.eyebrow) { font-size: .95rem; line-height: 1.6; margin: 22px 0; }
+  .ending dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .ending dd { font-size: 1.2rem; }
+  .ending .text-button { min-height: 44px; }
+  .technology-section { padding: 28px 16px; }
+  .technology-details summary { padding: 16px; font-size: .9rem; line-height: 1.5; }
+  .technology-grid article { padding: 18px; }
+}
+@media (hover: none) {
+  .primary:hover { transform: skew(-3deg); }
+  .hero-card:hover, .map-node.available:hover, .reward-grid button:hover { transform: none; }
+}
+
+/* Keep readable type and value contrast even when web fonts are unavailable. */
+.title-block h1, .map-heading h1, .reward-screen h1, .ending h1, .event-panel h1 {
+  font-family: 'Black Ops One', 'Chakra Petch', system-ui, sans-serif;
+}
+.inventory b { color: var(--cyan); }
+
+.technology-heading-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.technology-language { display: flex; gap: 6px; }
+.technology-language button { min-height: 44px; padding: 10px 14px; background: #241630; border: 1px solid #79549b; border-radius: 4px; color: #eee4f6; cursor: pointer; }
+.technology-language button[aria-pressed="true"] { background: #52e7ff; color: #080711; border-color: #52e7ff; font-weight: 700; }
+.technology-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.technology-links a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 12px; color: #52e7ff; border: 1px solid #513568; border-radius: 4px; text-decoration: none; font-size: .8rem; }
+.technology-links a:hover { background: #352046; text-decoration: underline; text-underline-offset: 3px; }
+.technology-links a:focus-visible, .technology-language button:focus-visible { outline: 2px solid #52e7ff; outline-offset: 4px; }
